@@ -1,0 +1,47 @@
+abstract class Transport(
+    val speed: Int,
+    val power: Int
+) {
+    abstract fun move()
+}
+
+class Car(
+    speed: Int,
+    power: Int,
+    val brand: String,
+    val model: String
+) : Transport(speed, power) {
+    override fun move() {
+        println("$brand $model is moving at a speed of $speed km/h")
+    }
+}
+
+class Bicycle(
+    speed: Int,
+    power: Int,
+    val gearCount: Int
+) : Transport(speed, power) {
+    override fun move() {
+        println("The bicycle is moving at a speed of $speed km/h with $gearCount gears")
+    }
+}
+
+class Motorcycle(
+    speed: Int,
+    power: Int,
+    val engineVolume: Int
+) : Transport(speed, power) {
+    override fun move() {
+        println("The motorcycle is moving at a speed of $speed km/h with an engine volume of $engineVolume")
+    }
+}
+
+fun main() {
+    val car = Car(100, 150, "Toyota", "Camry")
+    val bicycle = Bicycle(20, 0, 21)
+    val motorcycle = Motorcycle(80, 100, 500)
+
+    car.move()
+    bicycle.move()
+    motorcycle.move()
+}
