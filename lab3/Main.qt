@@ -1,0 +1,22 @@
+class Student(val name: String) {
+    val subjects = mutableListOf<String>()
+
+    fun addSubject(subject: String) {
+        subjects.add(subject)
+    }
+
+    fun isReadyForSession(): Boolean {
+        return subjects.isNotEmpty()
+    }
+}
+
+fun main() {
+    val student1 = Student("Іван")
+    student1.addSubject("Математика")
+    student1.addSubject("Програмування")
+
+    val student2 = Student("Олена")
+
+    println("${student1.name} ${if (student1.isReadyForSession()) "готовий" else "не готовий"} до сесії")
+    println("${student2.name} ${if (student2.isReadyForSession()) "готовий" else "не готовий"} до сесії")
+}
